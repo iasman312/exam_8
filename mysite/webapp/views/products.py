@@ -1,8 +1,8 @@
 from django.utils.http import urlencode
 from django.views.generic import ListView
 
-from mysite.webapp.forms import SearchForm
-from mysite.webapp.models import Product
+from webapp.forms import SearchForm
+from webapp.models import Product
 from django.db.models import Q
 
 

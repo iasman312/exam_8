@@ -12,14 +12,7 @@
 
     <nav class="navbar">
         <ul class="menu">
-            <li><a href="{% url "article:list" %}">Все товары</a></li>
-<!--                {% if user.is_authenticated %}-->
-<!--                    <li class="menu_right"><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>-->
-<!--                    <li class="menu_right"><a href="{% url 'accounts:user-detail' user.id %}">Профиль</a></li>-->
-<!--                {% else %}-->
-<!--                    <li class="menu_right"><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>-->
-<!--                    <li class="menu_right"><a href="{% url 'accounts:register' %}?next={{ request.get_full_path }}">Зарегистрироваться</a></li>-->
-<!--                {% endif %}-->
+            <li><a href="{% url "webapp:list" %}">Все товары</a></li>
             {% block menu %}{% endblock %}
         </ul>
     </nav>
