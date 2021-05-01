@@ -33,7 +33,7 @@
     {% for feedback in product.feedbacks.all %}
         {% if feedback.moderated == True or perms.webapp.is_moderator %}
             <div>
-                <p>{{ feedback.author.username }}(email: {{ feedback.author.email }}): {{ feedback.feedback_text }}({{ feedback.rating }})</p>
+                <p><a href="{% url 'accounts:user-detail' feedback.author.id %}">{{ feedback.author.username }}</a>(email: {{ feedback.author.email }}): {{ feedback.feedback_text }}({{ feedback.rating }})</p>
                 {% if perms.webapp.change_feedback or feedback.author == request.user %}
                     <p><a href="{% url "webapp:feedback-update" feedback.id %}">Редактировать отзыв</a></p>
                 {% endif %}
