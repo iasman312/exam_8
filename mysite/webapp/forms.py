@@ -1,4 +1,11 @@
 from django import forms
+from webapp.models import Product
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('name', 'category', 'description', 'picture')
 
 
 class SearchForm(forms.Form):

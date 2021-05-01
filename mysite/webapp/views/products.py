@@ -1,5 +1,6 @@
+from django.urls import reverse_lazy
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from webapp.forms import SearchForm
 from webapp.models import Product
@@ -45,3 +46,11 @@ class IndexView(ListView):
 class ProductView(DetailView):
     model = Product
     template_name = 'products/view.html'
+
+
+class CreateArticleView(CreateView):
+    template_name = 'articles/create.html'
+    form_class = ProductForm
+    model = Product
+    success_url = reverse_lazy('product:list')
+
