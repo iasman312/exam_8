@@ -47,6 +47,24 @@ class ProductView(DetailView):
     model = Product
     template_name = 'products/view.html'
 
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        total = 0
+        count = 0
+        if product.feedbacks:
+            for feedback in product.feedbacks.all():
+                if feedback.moderated == True:
+                    total += feedback.rating
+                    count += 1
+            if count == 0:
+                average = 0
+            else:
+                average = total / count
+        else:
+            average = 0
+        kwargs['average'] = average
+        return super().get_context_data(**kwargs)
+
 
 class CreateProductView(CreateView):
     template_name = 'products/create.html'

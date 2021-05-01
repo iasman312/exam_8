@@ -10,10 +10,13 @@
     <p>Name: {{ product.name }}</p>
     <p>Category: {{ product.category }}</p>
     <p>Description: {{ product.description }}</p>
+    <p>Average rating: {{ average }}</p>
 
-    <h2>Comments:</h2>
+    <h2>Feedbacks:</h2>
     {% for feedback in product.feedbacks.all %}
-        <p>{{ feedback.author }}: {{ feedback.feedback_text }}</p>
+        {% if feedback.moderated == True %}
+            <p>{{ feedback.author.username }}(email: {{ feedback.author.email }}): {{ feedback.feedback_text }}({{ feedback.rating }})</p>
+        {% endif %}
     {% empty %}
         <p>Нет отзывов :(</p>
     {% endfor %}
