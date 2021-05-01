@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for feedback in feedbacks %}
+        {% if feedback.moderated == False %}
+        <div class="box">
+            <h3>{{ feedback.feedback_text }}</h3>
+        </div>
+        {% endif %}
+    {% empty %}
+        <h2 class="text-center">Нет отзывов</h2>
+    {% endfor %}
+{% endblock %}

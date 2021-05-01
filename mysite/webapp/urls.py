@@ -8,7 +8,8 @@ from .views import (
     ProductDeleteView,
     ProductFeedbackCreate,
     ProductFeedbackUpdate,
-    ProductFeedbackDelete
+    ProductFeedbackDelete,
+    NotModeratedList
 )
 
 app_name = 'webapp'
@@ -23,4 +24,5 @@ urlpatterns = [
     path('feedbacks/<int:pk>/update/', ProductFeedbackUpdate.as_view(),
          name='feedback-update'),
     path('feedbacks/<int:pk>/delete/', ProductFeedbackDelete.as_view(), name='feedback-delete'),
+    path('feedback/list', NotModeratedList.as_view(), name='feedback-list')
 ]

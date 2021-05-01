@@ -1,9 +1,16 @@
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 
 from webapp.forms import FeedbackForm
 from webapp.models import Feedback, Product
+
+
+class NotModeratedList(ListView):
+    template_name = 'feedbacks/list.html'
+    model = Feedback
+    context_object_name = 'feedbacks'
+    ordering = ('-updated_at')
 
 
 class ProductFeedbackCreate(CreateView):
