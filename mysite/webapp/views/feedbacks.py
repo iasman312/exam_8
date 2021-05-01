@@ -25,7 +25,7 @@ class ProductFeedbackCreate(CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(UpdateView):
+class ProductFeedbackUpdate(UpdateView):
     form_class = FeedbackForm
     model = Product
     template_name = 'feedbacks/update.html'
