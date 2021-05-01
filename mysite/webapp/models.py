@@ -18,6 +18,9 @@ class Product(models.Model):
         db_table = 'products'
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+        permissions = [
+            ('is_moderator', 'Модератор'),
+        ]
 
     def __str__(self):
         return f'{self.name}'

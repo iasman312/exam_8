@@ -3,6 +3,12 @@
 
 {% block title %}Все товары{% endblock title %}
 
+{% block menu %}
+    {% if perms.webapp.add_product%}
+        <li><a href="{% url "webapp:add" %}">Создать товар</a></li>
+    {% endif %}
+{% endblock menu %}
+
 {% block page_header %}Все товары{% endblock page_header %}
 
 {% block content %}

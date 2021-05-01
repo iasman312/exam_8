@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -51,6 +53,7 @@ class ProductView(DetailView):
         product = self.get_object()
         total = 0
         count = 0
+        user = get_user_model()
         if product.feedbacks:
             for feedback in product.feedbacks.all():
                 if feedback.moderated == True:
@@ -66,25 +69,28 @@ class ProductView(DetailView):
         return super().get_context_data(**kwargs)
 
 
-class CreateProductView(CreateView):
+class CreateProductView(PermissionRequiredMixin, CreateView):
     template_name = 'products/create.html'
     form_class = ProductForm
     model = Product
     success_url = reverse_lazy('webapp:list')
+    permission_required = 'webapp.add_product'
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     form_class = ProductForm
     model = Product
     template_name = 'products/update.html'
     context_object_name = 'product'
+    permission_required = 'webapp.change_product'
 
     def get_success_url(self):
         return reverse('webapp:view', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     model = Product
     template_name = 'products/delete.html'
     context_object_name = 'product'
     success_url = reverse_lazy('webapp:list')
+    permission_required = 'webapp.delete_product'

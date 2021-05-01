@@ -19,5 +19,9 @@
     <p>Почта: {{ user_obj.email }}</p>
 
     <h2 class="text-center clear">Отзывы автора:</h2>
-    {% include 'partial/product_list.html' %}
+    {% for feedback in user.feedbacks.all %}
+        <p>{{ feedback.feedback_text }}</p>
+        <p><a href="{% url "webapp:feedback-update" feedback.id %}">Редактировать отзыв</a></p>
+        <p><a href="{% url "webapp:feedback-delete" feedback.id %}">Удалить отзыв</a></p>
+    {% endfor %}
 {% endblock %}

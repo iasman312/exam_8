@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block menu %}
+    {% if perms.webapp.change_article%}
+        <li><a href="{% url "webapp:add" %}">Создать товар</a></li>
+    {% endif %}
+    {% if perms.webapp.change_product%}
+        <li><a href="{% url "webapp:update" product.id %}">Редактировать товар</a></li>
+    {% endif %}
+    {% if perms.webapp.delete_product%}
+        <li><a href="{% url "webapp:delete" product.id %}">Удалить товар</a></li>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <li><a href="{% url "webapp:feedback-create" product.id %}">Добавить отзыв</a></li>
+    {% endif %}
+
+{% endblock menu %}
+
 {% block content %}
     {% if product.picture %}
         <img class="picture" src="{{ product.picture.url }}" width="250" height="250" alt="product picture">
@@ -14,8 +31,16 @@
 
     <h2>Feedbacks:</h2>
     {% for feedback in product.feedbacks.all %}
-        {% if feedback.moderated == True %}
-            <p>{{ feedback.author.username }}(email: {{ feedback.author.email }}): {{ feedback.feedback_text }}({{ feedback.rating }})</p>
+        {% if feedback.moderated == True or perms.webapp.is_moderator %}
+            <div>
+                <p>{{ feedback.author.username }}(email: {{ feedback.author.email }}): {{ feedback.feedback_text }}({{ feedback.rating }})</p>
+                {% if perms.webapp.change_feedback or feedback.author == request.user %}
+                    <p><a href="{% url "webapp:feedback-update" feedback.id %}">Редактировать отзыв</a></p>
+                {% endif %}
+                {% if perms.webapp.delete_feedback or feedback.author == request.user %}
+                    <p><a href="{% url "webapp:feedback-delete" feedback.id %}">Удалить отзыв</a></p>
+                {% endif %}
+            </div>
         {% endif %}
     {% empty %}
         <p>Нет отзывов :(</p>

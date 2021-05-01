@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth import get_user_model
+
 from webapp.models import Product, Feedback
 
 
@@ -11,6 +13,7 @@ class ProductForm(forms.ModelForm):
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
+        user = get_user_model()
         fields = ('feedback_text', 'rating')
 
 
