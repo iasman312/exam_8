@@ -1,10 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     {% if product.picture %}
         <img class="picture" src="{{ product.picture.url }}" width="250" height="250" alt="product picture">
+    {% else %}
+        <img class="picture" src="{% static "images/default.jpg" %}" width="250" height="250">
     {% endif %}
     <p>Name: {{ product.name }}</p>
     <p>Category: {{ product.category }}</p>
     <p>Description: {{ product.description }}</p>
+
+    <h2>Comments:</h2>
+    {% for feedback in product.feedbacks.all %}
+        <p>{{ feedback.author }}: {{ feedback.feedback_text }}</p>
+    {% empty %}
+        <p>Нет отзывов :(</p>
+    {% endfor %}
 {% endblock content %}
