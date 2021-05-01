@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Подтвердите удаление задачи{% endblock %}
+{% block page_header %}Вы уверены, что хотите удалить отзыв?{% endblock page_header %}
+
+{% block content%}
+    <form action="{% url "webapp:feedback-delete" feedback.id %}", method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Да, я хочу удалить задачу">
+        <a href="{% url "webapp:task-view" task.id %}">Отмена. Код красный. КОД
+            КРАСНЫЙ!!</a>
+    </form>
+{% endblock content %}

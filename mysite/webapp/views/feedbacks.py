@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from webapp.forms import FeedbackForm
 from webapp.models import Feedback, Product
@@ -38,3 +38,12 @@ class ProductFeedbackUpdate(UpdateView):
         feedback = form.instance
         feedback.moderated = False
         return super().form_valid(form)
+
+
+class ProductFeedbackDelete(DeleteView):
+    template_name = 'feedbacks/delete.html'
+    model = Feedback
+    context_object_name = 'feedback'
+
+    def get_success_url(self):
+        return reverse('webapp:view', kwargs={'pk': self.object.project.pk})
