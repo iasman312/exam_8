@@ -1,0 +1,160 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "MacBook Pro (Retina, 13-inch, Early 2015)",
+    "category": "laptop",
+    "description": "2.7GHz dual-core Intel Core i5 processor (Turbo Boost up to 3.1GHz) with 3MB shared L3 cache\r\nConfigurable to 2.9GHz dual-core Intel Core i5 (Turbo Boost up to 3.3GHz) with 3MB shared L3 cache or 3.1GHz dual-core Intel Core i7 (Turbo Boost up to 3.4GHz) with 4MB shared L3 cache.",
+    "picture": "product_pic/SP715-display_mbp_13.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Samsung Galaxy J3 (2016)",
+    "category": "smartphone",
+    "description": "Versions: J320FN (Europe); J320F (EMEA); J320F/DD (India); J320A (AT&T); J320P (Sprint, Virgin Mobile, Boost); Galaxy Amp Prime (Cricket); Galaxy J3 V (Verizon); J320M (LATAM); J320G (Asia). Also known as Samsung Galaxy J3 Pro in India with 16 GB storage & 2 GB",
+    "picture": "product_pic/samsung-galaxy-j3-2016-smartphone-vodacom-cellucity-online-shop-1.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Big Mac",
+    "category": "food",
+    "description": "Two 100% beef patties, a slice of cheese, lettuce, onion and pickles. And the sauce. That unbeatable, tasty Big Mac® sauce. You know you want to.",
+    "picture": "product_pic/mcdonalds-Big-Mac.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "fsafasf",
+    "category": "laptop",
+    "description": "sfafafa",
+    "picture": ""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "fsafasf",
+    "category": "laptop",
+    "description": "sfafafa",
+    "picture": ""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "fsafasf",
+    "category": "laptop",
+    "description": "sfafafa",
+    "picture": ""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "fsafasa",
+    "category": "smartphone",
+    "description": "sffafafafaf",
+    "picture": ""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 8,
+  "fields": {
+    "name": "safafa",
+    "category": "laptop",
+    "description": "fsfaa",
+    "picture": ""
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "feedback_text": "Good product",
+    "rating": 4,
+    "moderated": false,
+    "created_at": "2021-05-01T06:21:48.446Z",
+    "updated_at": "2021-05-01T06:21:48.446Z"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "product": 3,
+    "feedback_text": "Delicious",
+    "rating": 3,
+    "moderated": false,
+    "created_at": "2021-05-01T06:22:21.649Z",
+    "updated_at": "2021-05-01T06:22:21.649Z"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "product": 2,
+    "feedback_text": "Normal",
+    "rating": 2,
+    "moderated": false,
+    "created_at": "2021-05-01T06:22:35.363Z",
+    "updated_at": "2021-05-01T06:22:35.363Z"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 5,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "feedback_text": "sfafaf",
+    "rating": 1,
+    "moderated": false,
+    "created_at": "2021-05-01T08:19:57.601Z",
+    "updated_at": "2021-05-01T08:19:57.601Z"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 6,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "feedback_text": "sfafaaf",
+    "rating": 3,
+    "moderated": false,
+    "created_at": "2021-05-01T08:20:10.383Z",
+    "updated_at": "2021-05-01T08:20:10.383Z"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 7,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "feedback_text": "wqffqfq",
+    "rating": 1,
+    "moderated": false,
+    "created_at": "2021-05-01T08:20:25.903Z",
+    "updated_at": "2021-05-01T08:20:25.903Z"
+  }
+}
+]
