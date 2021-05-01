@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if product.picture %}
+        <img class="picture" src="{{ product.picture.url }}" width="250" height="250" alt="product picture">
+    {% endif %}
+    <p>Name: {{ product.name }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>Description: {{ product.description }}</p>
+{% endblock content %}
