@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView
 
-from webapp.forms import SearchForm
+from webapp.forms import SearchForm, ProductForm
 from webapp.models import Product
 from django.db.models import Q
 
@@ -48,9 +48,9 @@ class ProductView(DetailView):
     template_name = 'products/view.html'
 
 
-class CreateArticleView(CreateView):
-    template_name = 'articles/create.html'
+class CreateProductView(CreateView):
+    template_name = 'products/create.html'
     form_class = ProductForm
     model = Product
-    success_url = reverse_lazy('product:list')
+    success_url = reverse_lazy('webapp:list')
 

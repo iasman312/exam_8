@@ -1,1 +1,1 @@
-from webapp.views.products import IndexView, ProductView
+from webapp.views.products import IndexView, ProductView, CreateProductView
