@@ -5,6 +5,7 @@ from .views import (
     ProductView,
     CreateProductView,
     ProductUpdateView,
+    ProductDeleteView,
     ProductFeedbackCreate,
     ProductFeedbackUpdate,
     ProductFeedbackDelete
@@ -17,6 +18,7 @@ urlpatterns = [
     path('add/', CreateProductView.as_view(), name='add'),
     path('<int:pk>/', ProductView.as_view(), name='view'),
     path('<int:pk>/update', ProductUpdateView.as_view(), name='update'),
+    path('<int:pk>/delete', ProductDeleteView.as_view(), name='delete'),
     path('<int:pk>/feedbacks/add/', ProductFeedbackCreate.as_view(), name='feedback-create'),
     path('feedbacks/<int:pk>/update/', ProductFeedbackUpdate.as_view(),
          name='feedback-update'),

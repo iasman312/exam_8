@@ -65,7 +65,7 @@ class ProductUpdateView(UpdateView):
         return reverse('webapp:view', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class ArticleDeleteView(DeleteView):
+class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'products/delete.html'
     context_object_name = 'product'
