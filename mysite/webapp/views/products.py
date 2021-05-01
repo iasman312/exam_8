@@ -1,6 +1,6 @@
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from webapp.forms import SearchForm, ProductForm
 from webapp.models import Product
@@ -53,4 +53,14 @@ class CreateProductView(CreateView):
     form_class = ProductForm
     model = Product
     success_url = reverse_lazy('webapp:list')
+
+
+class ArticleUpdateView(UpdateView):
+    form_class = ProductForm
+    model = Product
+    template_name = 'products/update.html'
+    context_object_name = 'product'
+
+    def get_success_url(self):
+        return reverse('webapp:view', kwargs={'pk': self.kwargs.get('pk')})
 
