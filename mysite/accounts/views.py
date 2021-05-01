@@ -41,13 +41,19 @@ class UserDetailView(DetailView):
 class UserChangeView(UpdateView):
     model = get_user_model()
     form_class = UserChangeForm
-    template_name = 'user_change.html'
+    template_name = 'user_update.html'
     context_object_name = 'user_obj'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_success_url(self):
+        return reverse('accounts:user-detail', kwargs={'pk': self.object.pk})
 
 
 class UserPasswordChangeView(UpdateView):
     model = get_user_model()
-    template_name = 'user_password_change.html'
+    template_name = 'user_change_password.html'
     form_class = PasswordChangeForm
     context_object_name = 'user_obj'
 
@@ -60,6 +66,6 @@ class UserPasswordChangeView(UpdateView):
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        return reverse('accounts:detail', kwargs={'pk': self.object.pk})
+        return reverse('accounts:user-detail', kwargs={'pk': self.object.pk})
 
 
