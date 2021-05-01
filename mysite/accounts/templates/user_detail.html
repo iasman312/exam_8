@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль пользователя {{ user_obj.get_full_name|default:user_obj.username }}{% endblock %}
+{% block page_header %}Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}{% endblock %}
+
+
+{% block menu %}
+    {% if user == user_obj %}
+        <li class="menu_right"><a href="{% url 'accounts:user-change-password' %}">Сменить пароль</a></li>
+        <li class="menu_right"><a href="{% url 'accounts:user-update-profile' %}">Редактировать профиль</a></li>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <p>Имя пользователя: {{ user_obj.username }}</p>
+    <p>Имя: {{ user_obj.first_name }}</p>
+    <p>Фамилия: {{ user_obj.last_name }}</p>
+    <p>Почта: {{ user_obj.email }}</p>
+
+    <h2 class="text-center clear">Отзывы автора:</h2>
+    {% include 'partial/product_list.html' %}
+{% endblock %}
