@@ -1,0 +1,19 @@
+
+{% if is_paginated %}
+    {% include 'partial/paginate.html' %}
+{% endif %}
+
+
+{% for article in articles %}
+    <div class="box">
+        <h3><a href="">{{ product.name }}</a></h3>
+    </div>
+
+{% empty %}
+    <h2 class="text-center">Нет товаров</h2>
+{% endfor %}
+
+
+{% if is_paginated %}
+     {% include 'partial/pagination.html' %}
+{% endif %}
