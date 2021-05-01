@@ -1,5 +1,5 @@
 from django.utils.http import urlencode
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from webapp.forms import SearchForm
 from webapp.models import Product
@@ -40,3 +40,8 @@ class IndexView(ListView):
         if self.search_data:
             context['query'] = urlencode({'search_value': self.search_data})
         return context
+
+
+class ArticleView(DetailView):
+    model = Product
+    template_name = 'products/view.html'
