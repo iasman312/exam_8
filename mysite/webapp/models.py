@@ -25,7 +25,7 @@ class Product(models.Model):
 
 class Feedback(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, related_name='feedbacks')
-    product = models.ForeignKey('webapp.Product', on_delete=models.CASCADE, related_name='feedbacks', verbose_name='Товар', null=False, blank=False)
+    product = models.ForeignKey('webapp.Product', on_delete=models.CASCADE, related_name='feedbacks', verbose_name='Товар')
     feedback_text = models.TextField(max_length=3000, null=False, blank=False, verbose_name='Текст отзыва')
     rating = models.IntegerField(null=False, blank=False, default=1, validators=[MaxValueValidator(5), MinValueValidator(1)])
     moderated = models.BooleanField(default=False)

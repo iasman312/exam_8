@@ -13,15 +13,15 @@ class ProductFeedbackCreate(CreateView):
 
     def get_success_url(self):
         return reverse(
-            'article:view',
+            'webapp:view',
             kwargs={'pk': self.kwargs.get('pk')}
         )
 
     def form_valid(self, form):
-        article = get_object_or_404(Product, id=self.kwargs.get('pk'))
+        product = get_object_or_404(Product, id=self.kwargs.get('pk'))
 
         feedback = form.instance
-        feedback.article = article
+        feedback.product = product
         feedback.author = self.request.user
 
         return super().form_valid(form)
